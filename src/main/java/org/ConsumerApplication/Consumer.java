@@ -5,6 +5,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.rundeck.api.OptionsBuilder;
 import org.rundeck.api.RunJobBuilder;
 import org.rundeck.api.RundeckClient;
@@ -83,9 +84,18 @@ public class Consumer
             public void handle(String s, Delivery delivery) throws IOException {
                 String msg=new String(delivery.getBody(),"UTF-8");
                 JSONParser parser=new JSONParser();
-                try{
-                    Object obj=parser.parse(msg);
-                    JSONObject jo=(JSONObject)obj;
+
+                System.out.println(msg);
+                Object obj= null;
+                try
+                {
+                    obj = parser.parse(msg);
+                }
+                catch (ParseException e)
+                {
+                    e.printStackTrace();
+                }
+                JSONObject jo=(JSONObject)obj;
                     String urlLink=(String) jo.get("urlLink");
                     String appName=(String) jo.get("appName");
                     String email=(String) jo.get("Email");
@@ -99,11 +109,13 @@ public class Consumer
                     {
                         triggerMyJob(urlLink,appName);
                     }
+                try
+                {
                     sendMail(email,FILE_URL);
                 }
-                catch (Exception e)
+                catch (MessagingException e)
                 {
-                    System.out.println(e);
+                    e.printStackTrace();
                 }
             }
         }, new CancelCallback() {
