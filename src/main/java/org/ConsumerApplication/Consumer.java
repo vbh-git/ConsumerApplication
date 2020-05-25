@@ -56,7 +56,6 @@ public class Consumer
         });
         Message message=prepareMessage(session,senderEmail,receiver,text);
         Transport.send(message);
-        System.out.println("msg sent");
     }
 
     private static Message prepareMessage(Session session, String sender, String receiver,String text) throws MessagingException {
@@ -65,7 +64,6 @@ public class Consumer
         message.setRecipient(Message.RecipientType.TO,new InternetAddress(receiver));
         message.setSubject("Hi From ApkGen");
         message.setText(text);
-        System.out.println("msg prepared");
         return message;
     }
 
@@ -84,8 +82,6 @@ public class Consumer
             public void handle(String s, Delivery delivery) throws IOException {
                 String msg=new String(delivery.getBody(),"UTF-8");
                 JSONParser parser=new JSONParser();
-
-                System.out.println(msg);
                 Object obj= null;
                 try
                 {
