@@ -11,7 +11,7 @@ import org.rundeck.api.RunJobBuilder;
 import org.rundeck.api.RundeckClient;
 import org.rundeck.api.domain.RundeckExecution;
 import org.rundeck.api.domain.RundeckJob;
-import sun.awt.X11.XSystemTrayPeer;
+// import sun.awt.X11.XSystemTrayPeer;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -76,50 +76,45 @@ public class Consumer
         factory.setPassword("admin");
         Connection connection =factory.newConnection();
         Channel channel=connection.createChannel();
-        channel.queueDeclare("apkGenQueue",false,false,false,null);
-        channel.basicConsume("apkGenQueue", true, new DeliverCallback() {
-            @Override
-            public void handle(String s, Delivery delivery) throws IOException {
-                String msg=new String(delivery.getBody(),"UTF-8");
-                JSONParser parser=new JSONParser();
-                Object obj= null;
-                try
-                {
-                    obj = parser.parse(msg);
-                }
-                catch (ParseException e)
-                {
-                    e.printStackTrace();
-                }
-                JSONObject jo=(JSONObject)obj;
-                    String urlLink=(String) jo.get("urlLink");
-                    String appName=(String) jo.get("appName");
-                    String email=(String) jo.get("Email");
-                    String[] appUrl = urlLink.replaceAll("/", "").trim().split("\\.");
-                    String FILE_URL = "http://142.93.210.19:8000/"+appName+appUrl[1]+".apk";
-                    URL url=new URL(FILE_URL);
-                    HttpURLConnection hr=(HttpURLConnection) url.openConnection();
-                    hr.setRequestMethod("HEAD");
-                    hr.connect();
-                    if(hr.getResponseCode()!=200)
-                    {
-                        triggerMyJob(urlLink,appName);
-                    }
-                try
-                {
-                    sendMail(email,FILE_URL);
-                }
-                catch (MessagingException e)
-                {
-                    e.printStackTrace();
-                }
-            }
-        }, new CancelCallback() {
-            @Override
-            public void handle(String s) throws IOException {
 
+        DeliverCallback deliverCallback = (s, delivery) -> {
+            String msg=new String(delivery.getBody(),"UTF-8");
+            JSONParser parser=new JSONParser();
+            Object obj= null;
+            try
+            {
+                obj = parser.parse(msg);
             }
-        });
+            catch (ParseException e)
+            {
+                e.printStackTrace();
+            }
+            JSONObject jo=(JSONObject)obj;
+            String urlLink=(String) jo.get("urlLink");
+            String appName=(String) jo.get("appName");
+            String email=(String) jo.get("Email");
+            String[] appUrl = urlLink.replaceAll("/", "").trim().split("\\.");
+            String FILE_URL = "http://142.93.210.19:8000/"+appName+appUrl[1]+".apk";
+            URL url=new URL(FILE_URL);
+            HttpURLConnection hr=(HttpURLConnection) url.openConnection();
+            hr.setRequestMethod("HEAD");
+            hr.connect();
+            if(hr.getResponseCode()!=200)
+            {
+                triggerMyJob(urlLink,appName);
+            }
+            try
+            {
+                sendMail(email,FILE_URL);
+            }
+            catch (MessagingException e)
+            {
+                e.printStackTrace();
+            }
+        };
+
+        channel.queueDeclare("apkGenQueue",false,false,false,null);
+        channel.basicConsume("apkGenQueue", true, deliverCallback, consumerTag -> { });
     }
 }
 
