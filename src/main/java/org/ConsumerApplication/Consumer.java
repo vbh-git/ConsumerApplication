@@ -71,7 +71,7 @@ public class Consumer
     {
         ConnectionFactory factory=new ConnectionFactory();
         factory.setHost("159.65.158.218");
-        factory.setPort(15672);
+        factory.setPort(5672);
         factory.setUsername("admin");
         factory.setPassword("admin");
         Connection connection =factory.newConnection();
