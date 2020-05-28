@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.ConsumerApplication.AppTest" time="0.074" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/vbh/Downloads/ConsumerApplication/target/test-classes:/home/vbh/Downloads/ConsumerApplication/target/classes:/home/vbh/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/vbh/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/vbh/.m2/repository/org/rundeck/rundeck-api-java-client/13.2/rundeck-api-java-client-13.2.jar:/home/vbh/.m2/repository/org/apache/httpcomponents/httpclient/4.3.6/httpclient-4.3.6.jar:/home/vbh/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/home/vbh/.m2/repository/commons-codec/commons-codec/1.6/commons-codec-1.6.jar:/home/vbh/.m2/repository/org/apache/httpcomponents/httpmime/4.3.6/httpmime-4.3.6.jar:/home/vbh/.m2/repository/org/apache/httpcomponents/httpcore/4.3.3/httpcore-4.3.3.jar:/home/vbh/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/home/vbh/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/home/vbh/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/home/vbh/.m2/repository/jaxen/jaxen/1.1.6/jaxen-1.1.6.jar:/home/vbh/.m2/repository/org/apache/geronimo/specs/geronimo-servlet_3.0_spec/1.0/geronimo-servlet_3.0_spec-1.0.jar:/home/vbh/.m2/repository/commons-fileupload/commons-fileupload/1.4/commons-fileupload-1.4.jar:/home/vbh/.m2/repository/com/rabbitmq/amqp-client/5.9.0/amqp-client-5.9.0.jar:/home/vbh/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/home/vbh/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/home/vbh/.m2/repository/com/sun/mail/javax.mail/1.6.0/javax.mail-1.6.0.jar:/home/vbh/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Linux"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/home/vbh/.sdkman/candidates/java/8.0.252-amzn/jre/lib/amd64"/>
+    <property name="sun.java.command" value="/home/vbh/Downloads/ConsumerApplication/target/surefire/surefirebooter5473755887402535274.jar /home/vbh/Downloads/ConsumerApplication/target/surefire 2020-05-28T20-15-01_036-jvmRun1 surefire2271994350383838778tmp surefire_04864728097857780589tmp"/>
+    <property name="surefire.test.class.path" value="/home/vbh/Downloads/ConsumerApplication/target/test-classes:/home/vbh/Downloads/ConsumerApplication/target/classes:/home/vbh/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/vbh/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/vbh/.m2/repository/org/rundeck/rundeck-api-java-client/13.2/rundeck-api-java-client-13.2.jar:/home/vbh/.m2/repository/org/apache/httpcomponents/httpclient/4.3.6/httpclient-4.3.6.jar:/home/vbh/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/home/vbh/.m2/repository/commons-codec/commons-codec/1.6/commons-codec-1.6.jar:/home/vbh/.m2/repository/org/apache/httpcomponents/httpmime/4.3.6/httpmime-4.3.6.jar:/home/vbh/.m2/repository/org/apache/httpcomponents/httpcore/4.3.3/httpcore-4.3.3.jar:/home/vbh/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/home/vbh/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/home/vbh/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/home/vbh/.m2/repository/jaxen/jaxen/1.1.6/jaxen-1.1.6.jar:/home/vbh/.m2/repository/org/apache/geronimo/specs/geronimo-servlet_3.0_spec/1.0/geronimo-servlet_3.0_spec-1.0.jar:/home/vbh/.m2/repository/commons-fileupload/commons-fileupload/1.4/commons-fileupload-1.4.jar:/home/vbh/.m2/repository/com/rabbitmq/amqp-client/5.9.0/amqp-client-5.9.0.jar:/home/vbh/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/home/vbh/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/home/vbh/.m2/repository/com/sun/mail/javax.mail/1.6.0/javax.mail-1.6.0.jar:/home/vbh/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/vbh"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/home/vbh/.sdkman/candidates/java/8.0.252-amzn/jre"/>
+    <property name="basedir" value="/home/vbh/Downloads/ConsumerApplication"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/vbh/Downloads/ConsumerApplication/target/surefire/surefirebooter5473755887402535274.jar"/>
+    <property name="sun.boot.class.path" value="/home/vbh/.sdkman/candidates/java/8.0.252-amzn/jre/lib/resources.jar:/home/vbh/.sdkman/candidates/java/8.0.252-amzn/jre/lib/rt.jar:/home/vbh/.sdkman/candidates/java/8.0.252-amzn/jre/lib/sunrsasign.jar:/home/vbh/.sdkman/candidates/java/8.0.252-amzn/jre/lib/jsse.jar:/home/vbh/.sdkman/candidates/java/8.0.252-amzn/jre/lib/jce.jar:/home/vbh/.sdkman/candidates/java/8.0.252-amzn/jre/lib/charsets.jar:/home/vbh/.sdkman/candidates/java/8.0.252-amzn/jre/lib/jfr.jar:/home/vbh/.sdkman/candidates/java/8.0.252-amzn/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_252-b09"/>
+    <property name="user.name" value="vbh"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="5.3.0-26-generic"/>
+    <property name="java.endorsed.dirs" value="/home/vbh/.sdkman/candidates/java/8.0.252-amzn/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/vbh/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-8/issues/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="1.8.0_252"/>
+    <property name="user.dir" value="/home/vbh/Downloads/ConsumerApplication"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="java.vm.version" value="25.252-b09"/>
+    <property name="java.ext.dirs" value="/home/vbh/.sdkman/candidates/java/8.0.252-amzn/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="shouldAnswerWithTrue" classname="org.ConsumerApplication.AppTest" time="0.003"/>
+</testsuite>

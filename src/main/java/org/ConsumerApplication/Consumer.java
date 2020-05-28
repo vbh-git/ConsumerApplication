@@ -1,6 +1,7 @@
 package org.ConsumerApplication;
 
 import com.rabbitmq.client.*;
+import com.rabbitmq.tools.json.JSONUtil;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
@@ -48,7 +49,7 @@ public class Consumer
         properties.put("mail.smtp.port","587");
         String senderEmail="apkgenwebsite@gmail.com";
         String senderEmailPassword="awesomeapk";
-        Session session=Session.getInstance(properties, new Authenticator() {
+        Session session=Session.getInstance(properties, new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(senderEmail,senderEmailPassword);
@@ -92,12 +93,13 @@ public class Consumer
             JSONObject jo=(JSONObject)obj;
             String urlLink=(String) jo.get("urlLink");
             String appName=(String) jo.get("appName");
-            String email=(String) jo.get("Email");
+            String email=(String) jo.get("emailid");
             String[] appUrl = urlLink.replaceAll("/", "").trim().split("\\.");
             String FILE_URL = "http://142.93.210.19:8000/"+appName+appUrl[1]+".apk";
             URL url=new URL(FILE_URL);
             HttpURLConnection hr=(HttpURLConnection) url.openConnection();
-            hr.setRequestMethod("HEAD");
+            hr.setRequestMethod("GET");
+            hr.getRequestMethod();
             hr.connect();
             if(hr.getResponseCode()!=200)
             {
