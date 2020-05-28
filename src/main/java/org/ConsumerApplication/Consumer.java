@@ -55,7 +55,12 @@ public class Consumer
                 return new PasswordAuthentication(senderEmail,senderEmailPassword);
             }
         });
-        Message message=prepareMessage(session,senderEmail,receiver,text);
+
+        String emailContent = "Hi\n\n\tYour application can be downloaded from the following <a href='"+text+"'> link.\n" +
+                "Alternately you can copy the follotwing link and browse\n\n\t:" +
+                text + "\n\nThank you for using our service\n( APKGen.digital )";
+
+        Message message=prepareMessage(session,senderEmail,receiver,emailContent);
         Transport.send(message);
     }
 
