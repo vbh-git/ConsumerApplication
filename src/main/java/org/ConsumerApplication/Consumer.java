@@ -56,8 +56,7 @@ public class Consumer
             }
         });
 
-        String emailContent = "Hi\n\n\tYour application can be downloaded from the following <a href='"+text+"'> link.\n" +
-                "Alternately you can copy the follotwing link and browse\n\n\t:" +
+        String emailContent = "Dear User,\n\n\tYour application can be downloaded from following link:\n\n\t" +
                 text + "\n\nThank you for using our service\n( APKGen.digital )";
 
         Message message=prepareMessage(session,senderEmail,receiver,emailContent);
@@ -68,7 +67,7 @@ public class Consumer
         Message message=new MimeMessage(session);
         message.setFrom(new InternetAddress(sender));
         message.setRecipient(Message.RecipientType.TO,new InternetAddress(receiver));
-        message.setSubject("Hi From ApkGen");
+        message.setSubject("APKGen: Your Application has been generated");
         message.setText(text);
         return message;
     }
